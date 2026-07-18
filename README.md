@@ -1,6 +1,6 @@
 Personal Agent Skills.
 
-## KISS
+## KISS (Keep It Stupid Simple)
 
 Give brief, direct explanations in at most two sentences.
 
