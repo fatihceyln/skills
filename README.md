@@ -1,5 +1,3 @@
-# Skills
-
 Personal Agent Skills.
 
 ## KISS
