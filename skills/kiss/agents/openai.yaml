@@ -1,0 +1,7 @@
+interface:
+  display_name: "KISS"
+  short_description: "Explain concepts in two short sentences"
+  default_prompt: "Use $kiss to explain this briefly."
+
+policy:
+  allow_implicit_invocation: true
