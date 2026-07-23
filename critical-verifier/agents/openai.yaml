@@ -1,0 +1,4 @@
+interface:
+  display_name: "Critical Verifier"
+  short_description: "Challenge claims and verify facts with evidence"
+  default_prompt: "Use $critical-verifier to critically assess my claim and verify the answer with reliable sources."
