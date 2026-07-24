@@ -16,7 +16,7 @@ npx skills add https://github.com/fatihceyln/skills.git -g -y
 
 ## KISS (Keep It Stupid Simple)
 
-Give brief, direct explanations in at most two sentences.
+Ask a complex question; get a fast answer in **at most two sentences**. No essays, no bullet lists, no “it depends” chapters — just the core point.
 
 Use when you explicitly want a short answer. Trigger with phrases like "brief explanation", "keep it short", or "kiss mode".
 
@@ -24,11 +24,11 @@ Use when you explicitly want a short answer. Trigger with phrases like "brief ex
 
 **Prompt**
 
-> kiss mode: What does `defer` do in Swift?
+> kiss mode: Explain how Swift structured concurrency differs from GCD — cover task cancellation, actor isolation, and when I should still use `DispatchQueue`.
 
 **Response** (KISS)
 
-> `defer` schedules code to run when the current scope ends, even if the function returns early. Use it for cleanup such as closing resources or releasing locks.
+> Swift concurrency gives you structured tasks with automatic cancellation and actor-based isolation, while GCD is a lower-level queue API you schedule yourself. Prefer async/await and actors for new work; reach for `DispatchQueue` mainly for legacy APIs or fine-grained queue control.
 
 ## Verify
 
