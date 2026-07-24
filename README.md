@@ -48,4 +48,6 @@ Use when you state something as fact, ask “am I right?”, or want source-back
 >
 > No — it runs on the session’s delegate queue, not the main thread. On `URLSession.shared` that queue is a background serial queue (`com.apple.NSURLSession-delegate`).
 >
+> A custom `URLSession` with `delegateQueue: .main` would run on main — that option is not available on the shared session.
+>
 > Source: [Apple — dataTask(with:completionHandler:)](https://developer.apple.com/documentation/foundation/urlsession/datatask(with:completionhandler:)-52wk8) (“executed on the delegate queue”); runtime check: `Thread.isMainThread == false`.

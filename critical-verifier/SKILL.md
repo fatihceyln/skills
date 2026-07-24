@@ -32,14 +32,15 @@ Prefer a short, plain answer. Depth of checking stays high; length of the reply 
 
 ## Response shape
 
-Keep the whole reply short — usually a few sentences, not a report.
+Keep the whole reply short — a small paragraph cluster, not a report.
 
 1. Verdict (in the user's language)
 2. Direct answer or correction (1–2 sentences)
-3. One decisive source (link or file path). Add a second only if the claim is contested or high-impact.
-4. One line of uncertainty only when it changes the conclusion
+3. A few sentences of evidence and, when useful, the strongest short counterargument
+4. One or two decisive sources (link or file path)
+5. One line of uncertainty only when it changes the conclusion
 
-Skip counterargument essays, evidence dumps, and “what would change this” unless the user asks for detail.
+Stay plain and compact. Skip long essays, bullet dumps, and “what would change this” unless the user asks for detail.
 
 ## Source rules
 
