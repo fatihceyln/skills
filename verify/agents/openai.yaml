@@ -1,0 +1,4 @@
+interface:
+  display_name: "Verify"
+  short_description: "Verify what you think you know against real sources"
+  default_prompt: "Use $verify to verify my claim against real sources and give a short answer."

@@ -1,4 +1,0 @@
-interface:
-  display_name: "Critical Verifier"
-  short_description: "Verify what you think you know against real sources"
-  default_prompt: "Use $critical-verifier to verify my claim against real sources and give a short answer."

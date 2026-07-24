@@ -30,7 +30,7 @@ Use when you explicitly want a short answer. Trigger with phrases like "brief ex
 
 > `defer` schedules code to run when the current scope ends, even if the function returns early. Use it for cleanup such as closing resources or releasing locks.
 
-## Critical Verifier
+## Verify
 
 Verify things you think you know against real sources before answering. Keep the reply short and plain.
 
@@ -42,7 +42,7 @@ Use when you state something as fact, ask “am I right?”, or want source-back
 
 > The `URLSession.shared.dataTask` completion handler always runs on the main thread, right?
 
-**Response** (Critical Verifier)
+**Response** (Verify)
 
 > **Unsupported**
 >

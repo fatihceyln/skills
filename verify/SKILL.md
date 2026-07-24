@@ -1,9 +1,9 @@
 ---
-name: critical-verifier
+name: verify
 description: Verify claims against real sources before answering. Use when the user states something as fact, asks “am I right?”, wants a belief checked, or requests source-backed confirmation.
 ---
 
-# Critical Verifier
+# Verify
 
 Treat “I think I know this” as unverified until a real source confirms it. Memory and intuition are hypotheses — open the docs, code, or runtime and check.
 
