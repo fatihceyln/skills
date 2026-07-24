@@ -24,11 +24,11 @@ Use when you explicitly want a short answer. Trigger with phrases like "brief ex
 
 **Prompt**
 
-> kiss mode: Swift'te `defer` ne işe yarar?
+> kiss mode: What does `defer` do in Swift?
 
 **Response** (KISS)
 
-> `defer`, bulunduğu scope bittiğinde (fonksiyon erken `return` olsa bile) çalışacak kodu erteler. Kaynak kapatma, kilit bırakma gibi temizlik işleri için kullanılır.
+> `defer` schedules code to run when the current scope ends, even if the function returns early. Use it for cleanup such as closing resources or releasing locks.
 
 ## Critical Verifier
 
@@ -47,19 +47,19 @@ The skill:
 
 **Prompt**
 
-> `URLSession.shared.dataTask` completion handler'ı her zaman main thread'de çalışır, değil mi?
+> The `URLSession.shared.dataTask` completion handler always runs on the main thread, right?
 
 **Response** (Critical Verifier)
 
-> **Desteklenmiyor**
+> **Unsupported**
 >
-> Hayır — `URLSession.shared` completion handler'ı main thread'de çalışmaz; session'ın delegate queue'sunda çalışır.
+> No — the `URLSession.shared` completion handler does not run on the main thread; it runs on the session’s delegate queue.
 >
-> En güçlü karşı argüman: kendi oluşturduğun bir `URLSession`'a `delegateQueue: .main` verirsen handler main'de çalışır. Bu, shared session için geçerli değildir; shared session'da özel queue veremezsin.
+> Strongest counterargument: if you create your own `URLSession` with `delegateQueue: .main`, the handler will run on the main queue. That does not apply to the shared session, where you cannot supply a custom queue.
 >
-> Kanıt:
-> - Apple docs: completion handler "delegate queue" üzerinde çalışır ([dataTask(with:completionHandler:)](https://developer.apple.com/documentation/foundation/urlsession/datatask(with:completionhandler:)-52wk8)).
-> - Apple docs: `delegateQueue` `nil` ise session kendi serial operation queue'sunu oluşturur ([init(configuration:delegate:delegateQueue:)](https://developer.apple.com/documentation/foundation/urlsession/init(configuration:delegate:delegatequeue:))).
-> - Runtime (2026-07-24, macOS): `URLSession.shared.dataTask` içinde `Thread.isMainThread == false`, queue label `com.apple.NSURLSession-delegate`.
+> Evidence:
+> - Apple docs: the completion handler runs on the delegate queue ([dataTask(with:completionHandler:)](https://developer.apple.com/documentation/foundation/urlsession/datatask(with:completionhandler:)-52wk8)).
+> - Apple docs: if `delegateQueue` is `nil`, the session creates its own serial operation queue ([init(configuration:delegate:delegateQueue:)](https://developer.apple.com/documentation/foundation/urlsession/init(configuration:delegate:delegatequeue:))).
+> - Runtime (2026-07-24, macOS): inside `URLSession.shared.dataTask`, `Thread.isMainThread == false`, queue label `com.apple.NSURLSession-delegate`.
 >
-> UI güncellemesi gerekiyorsa handler içinde açıkça main queue'ya hop etmen gerekir. Sonucu değiştirir: custom session + `delegateQueue: .main`.
+> If you need a UI update, hop to the main queue explicitly inside the handler. What would change the conclusion: a custom session with `delegateQueue: .main`.
