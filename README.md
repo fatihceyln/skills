@@ -24,11 +24,11 @@ Use when you explicitly want a short answer. Trigger with phrases like "brief ex
 
 **Prompt**
 
-> kiss mode: Explain how Swift structured concurrency differs from GCD — cover task cancellation, actor isolation, and when I should still use `DispatchQueue`.
+> kiss mode: Walk me through how a browser loads a webpage — DNS lookup, TCP/TLS, HTTP request, parsing, rendering, and where a CDN fits into that path.
 
 **Response** (KISS)
 
-> Swift concurrency gives you structured tasks with automatic cancellation and actor-based isolation, while GCD is a lower-level queue API you schedule yourself. Prefer async/await and actors for new work; reach for `DispatchQueue` mainly for legacy APIs or fine-grained queue control.
+> The browser resolves the host, opens a secure connection, fetches the document and its assets, then parses HTML/CSS/JS into a renderable tree and paints pixels. A CDN shortens that path by answering the fetch from an edge node close to the user instead of the origin server.
 
 ## Verify
 
