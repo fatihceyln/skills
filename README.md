@@ -32,16 +32,9 @@ Use when you explicitly want a short answer. Trigger with phrases like "brief ex
 
 ## Critical Verifier
 
-Optimize for truth, not agreement. Treat claims as hypotheses to test instead of reflexively agreeing.
+Verify things you think you know against real sources before answering. Keep the reply short and plain.
 
-Use for factual questions, proposed diagnoses or conclusions, architecture and implementation claims, “am I right?” questions, disputed or high-stakes topics, and fact-checking or adversarial review.
-
-The skill:
-
-- Looks for the strongest credible counterargument and falsifying evidence
-- Verifies substantive claims against code, docs, or authoritative sources before concluding
-- Leads with a verdict: **Supported**, **Partly supported**, **Unsupported**, or **Unresolved**
-- Separates verified facts, inferences, opinions, and unresolved uncertainty
+Use when you state something as fact, ask “am I right?”, or want source-backed confirmation.
 
 ### Example
 
@@ -53,13 +46,6 @@ The skill:
 
 > **Unsupported**
 >
-> No — the `URLSession.shared` completion handler does not run on the main thread; it runs on the session’s delegate queue.
+> No — it runs on the session’s delegate queue, not the main thread. On `URLSession.shared` that queue is a background serial queue (`com.apple.NSURLSession-delegate`).
 >
-> Strongest counterargument: if you create your own `URLSession` with `delegateQueue: .main`, the handler will run on the main queue. That does not apply to the shared session, where you cannot supply a custom queue.
->
-> Evidence:
-> - Apple docs: the completion handler runs on the delegate queue ([dataTask(with:completionHandler:)](https://developer.apple.com/documentation/foundation/urlsession/datatask(with:completionhandler:)-52wk8)).
-> - Apple docs: if `delegateQueue` is `nil`, the session creates its own serial operation queue ([init(configuration:delegate:delegateQueue:)](https://developer.apple.com/documentation/foundation/urlsession/init(configuration:delegate:delegatequeue:))).
-> - Runtime (2026-07-24, macOS): inside `URLSession.shared.dataTask`, `Thread.isMainThread == false`, queue label `com.apple.NSURLSession-delegate`.
->
-> If you need a UI update, hop to the main queue explicitly inside the handler. What would change the conclusion: a custom session with `delegateQueue: .main`.
+> Source: [Apple — dataTask(with:completionHandler:)](https://developer.apple.com/documentation/foundation/urlsession/datatask(with:completionhandler:)-52wk8) (“executed on the delegate queue”); runtime check: `Thread.isMainThread == false`.
