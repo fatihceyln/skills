@@ -44,7 +44,7 @@ Use when you state something as fact, ask “am I right?”, or want source-back
 
 **Response** (Verify)
 
-> **Unsupported**
+> **False**
 >
 > No — it runs on the session’s delegate queue, not the main thread. On `URLSession.shared` that queue is a background serial queue (`com.apple.NSURLSession-delegate`).
 >
